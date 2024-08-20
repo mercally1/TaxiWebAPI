@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 builder.Services.AddDbContext<TaximetroDbContext>(configure =>
-configure.UseSqlServer("Server=JMERCALLY\\MSSQLSERVER01; Catalog Initial=Taxi; Integrated Security=True; TrustServerCertification;"));
+configure.UseSqlServer("ConnectionStrings:DefaultConnection"));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
