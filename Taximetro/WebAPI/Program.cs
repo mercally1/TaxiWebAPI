@@ -1,3 +1,6 @@
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+builder.Services.AddDbContext<TaximetroDbContext>(configure =>
+configure.UseSqlServer("Server=JMERCALLY\\MSSQLSERVER01; Catalog Initial=Taxi; Integrated Security=True; TrustServerCertification;"));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
