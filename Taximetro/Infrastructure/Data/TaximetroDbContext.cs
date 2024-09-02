@@ -12,5 +12,5 @@ public class TaximetroDbContext : DbContext
 
     public DbSet<Taxi> taxis { get; set; }
 
-    public DbSet<Trayecto> trayecto { get; set; }
+    public DbSet<Trayecto> trayectos { get; set; }
 }
