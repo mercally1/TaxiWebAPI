@@ -1,6 +1,4 @@
-﻿
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities;
@@ -25,6 +23,6 @@ public class Taxi
     [Required, MaxLength(10)]
     public int Ahno { get; set; }
 
-    [ForeignKey("ConductorId")]
+    [ForeignKey(nameof(ConductorId))]
     public virtual Conductor? Conductor { get; set; }
 }
