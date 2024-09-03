@@ -1,10 +1,11 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces.Infrastructure.Repositories;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.ConductorRepository;
 
-public class ConductorRepository
+public class ConductorRepository : IConductorRepository
 {
     private readonly TaxiDbContext _taxiDbContext;
 
@@ -51,16 +52,17 @@ public class ConductorRepository
     }
 
     //Method Put
-    public async Task<Conductor> ModifyConductorAsync(Conductor conductorId)
+    public async Task<Conductor> ModifyConductorAsync(Conductor conductor)
     {
-        Conductor? conductor = await _taxiDbContext
+        await _taxiDbContext
              .conductores
-             .AsTraking()
+             .AsTracking()
              .FirstOrDefaultAsync(u => u.ConductorId == conductor.ConductorId);
          
         await _taxiDbContext.SaveChangesAsync();
-    }
 
+        return conductor;
+    }
 
     //Method Delete
     public async Task<bool> RemoveConductorAsync(int conductorId)
