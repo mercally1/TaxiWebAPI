@@ -17,5 +17,5 @@ public class PostConductorRequest
     public int Licencia { get; set; }
 
     [Required]
-    public int LicenciaId { get; set; }
+    public int Contacto { get; set; }
 }
