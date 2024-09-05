@@ -3,15 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
 
-public class TaxiDbContext : DbContext
+public class TaximetroDbContext : DbContext
 {
-    public TaxiDbContext(DbContextOptions<TaxiDbContext> options): base(options)
-    {
-    }
-
-    public DbSet<Taxi> taxis { get; set; }
+    public TaximetroDbContext(DbContextOptions<TaximetroDbContext> options) : base(options)
+    { }
 
     public DbSet<Conductor> conductores { get; set; }
 
+    public DbSet<Taxi> taxis { get; set; }
+
     public DbSet<Trayecto> trayectos { get; set; }
-} 
+}
